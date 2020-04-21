@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "Arcade Classic";
+    src: url("../../assets/fonts/arcadeclassic-webfont.woff") format("woff");
+}
+
+* {
+    font-family: "Arcade Classic", sans-serif;
+}
