@@ -4,13 +4,14 @@ import LobbyPage from './pages/lobby/index';
 import './styles/configs/reset.css'
 import './styles/global/index.css'
 import './styles/global/variables.css'
+import PlayPage from './pages/play/index';
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route exact path="/" component={LobbyPage} />
-        {/* <Route exact path="/play" component={PlayPage} /> */}
+        <Route exact path="/play" component={PlayPage} />
       </Switch>
     </Router>
   );
