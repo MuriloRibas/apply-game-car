@@ -7,8 +7,6 @@ export const DivAlignEnv = styled.div`
     height: 100vh;
 `
 
-export const ImgCar = styled.img`
-    position: absolute;
-    bottom: 0;
-    width: 200px;
+export const ImgEnv = styled.img`
+    width: 100%;
 `
