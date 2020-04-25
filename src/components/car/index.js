@@ -6,7 +6,7 @@ export default function CarComponent(props) {
     return (
         <ImgCar
             src={car} 
-            position={props.position}
+            left={props.position}
         />
     )
 }

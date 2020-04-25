@@ -1,29 +1,36 @@
 import React, { useState, useEffect } from 'react'
-import { DivAlignContent, ButtonStyled, DivGrass, DivFlower, DivBodyFlower, DivGround } from './styles';
+import { DivAlignContent, DivGrass, DivFlower, DivBodyFlower, DivGround, DivCloud } from './styles';
+import { ButtonStyled } from '../../components/BtnStyled';
+import {Redirect} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-export default function LobbyPage() {
+function LobbyPage(props) {
 
+    const [redirect, setRedirect] = useState(false)
     const [nickName, setNickName] = useState('');
-    const [howManyClouds, setHowManyClouds] = useState([]);
+    const [howManyGrass, setHowManyGrass] = useState([]);
+
+    const goToPlayPage = () => setRedirect(true)
+    
+    useEffect(() => {
+        if (redirect){
+            return props.history.push('/play')
+        } 
+    }, [redirect])
 
     useEffect(() => {
-        // let newCloudsArr = [];
-        // for (let i = 0; i < Math.random() * 50; i++) {
-        //     newCloudsArr.push(i);
-        // }
-        // setHowManyClouds(howManyClouds.concat(newCloudsArr));
-        setHowManyClouds([1, 2]);
-
+        setHowManyGrass([1, 2, 3]);
     }, [])
 
     return (
         <DivAlignContent>
             {
-                howManyClouds.map((el, i) => (
+                howManyGrass.map((el, i) => (
                     <DivGrass 
                         // width={Math.random() * (300 + el) + 'px'}
                         // top={Math.random() * (100 + el) + '%'}
                         // left={Math.random() * (100 + el) + '%'}
+                        isLast={i === howManyGrass.length - 1 ? 0 : 'none'}
                         isFirst={i === 0 ? true : false}
                         width="500px"
                         bottom={0}
@@ -31,6 +38,11 @@ export default function LobbyPage() {
                     />
                 ))
             }
+            <DivCloud
+                width="200px"
+                top="10%"
+                left="20%"
+            />
             <DivGround/>
             <DivFlower>
                 STOP
@@ -43,7 +55,11 @@ export default function LobbyPage() {
                 value={nickName} 
                 onChange={(e) => setNickName(e.target.value)} 
             />
-            <ButtonStyled>Start Race!</ButtonStyled>
+            <ButtonStyled
+                onClick={() => goToPlayPage()}
+            >Start Race!</ButtonStyled>
         </DivAlignContent>
     )
 }
+
+export default withRouter(LobbyPage)
