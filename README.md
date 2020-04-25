@@ -1,3 +1,8 @@
+## Executando
+Basta clonar o repositório, e, logo após, instalar as dependências ( <code>npm i</code> ) e executar o script <code>npm start</code> .
+
+----------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
